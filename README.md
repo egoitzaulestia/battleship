@@ -1,3 +1,3 @@
 # battleship
 
-![imagen](.img/Navy_01.jpg)
+![imagen](./img/Navy_01.jpg)
