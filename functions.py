@@ -4,14 +4,7 @@ from variables import SIZE_TABLERO, player_shots_hist, machine_shots_hist
 from variables import CADETE, TENIENTE, COMANDANTE, CAPITAN, ALMIRANTE
 from variables import rango_militar, player, shots, aciertos, players_win
 from variables import lista_barcos_PLA, lista_barcos_MAC
-# from main import TABLERO, TABLERO_MAQUINA, TABLERO_OCULTO
 
-# Función para incializar tableros
-# def init_tablero(fill):
-    
-#     tablero = np.full((10, 10), fill)
-    
-#     return tablero
 
 def initialize_board():
     """
@@ -29,8 +22,7 @@ def barco_manual(lista_barcos_MAC:list, lista_barcos_PLA:list):
     # Colocamos los barcos de la máquina MODO PRUEBA
     for barco in lista_barcos_MAC:
         for coord in barco:
-            TABLERO_MAQUINA[coord] = "O"
-    
+            TABLERO_MAQUINA[coord] = "O"    
 
     # Colocamos los barcos del player
     for barco in lista_barcos_PLA:
@@ -74,6 +66,7 @@ def welcome_player():
     
     return player, rango_militar, level
 
+
 def get_info_player(player, rango_militar):
     player = player
     rango_militar = rango_militar
@@ -97,7 +90,6 @@ def choose_level():
     time.sleep(.15)    
     level = int(input("Introduzca un número del 1 al 5: "))
     print()
-
 
     # Nivel 1 de difcultad CADETE     == 1
     if level == CADETE:
@@ -191,7 +183,7 @@ def shoot2machine():
         time.sleep(.5)
         print(TABLERO_OCULTO)
         print()
-    
+        
     if aciertos == 20:
         aciertos_final = True
     else:
@@ -242,7 +234,6 @@ def shoot2player():
         print()
 
 
-
 aciertos = 0
 
 player, rango_militar, level = welcome_player()
@@ -252,10 +243,8 @@ shots = 30
 aciertos_final = False
 
 
-
 def jugar():
 
-    
     # Colocamos los barcos de manera manual
     barco_manual(lista_barcos_PLA, lista_barcos_MAC)
 
@@ -274,16 +263,6 @@ def jugar():
             break
 
         elif shots == 0:
-            # TABLERO_MAQUINA[coord_x, coord_y] = "-"
-            # TABLERO_OCULTO[coord_x, coord_y] = "-"
-            # time.sleep(.2)
-            # print(f"Hemos fallado, {rango_militar}!!.")
-            # time.sleep(.2)
-            # cuanta_municion(shots)
-            # time.sleep(.5)
-            # print(TABLERO_OCULTO)
-            # print()
-            # time.sleep(.5)
             print(f"Maldita sea! Nos hemos quedado sin munición, {rango_militar} {player}!!")
             time.sleep(.35)
             print()
@@ -298,7 +277,4 @@ def jugar():
             print(f"Hemos ganado la batalla, {rango_militar} {player}!!!!!")
             break
         
-        # dificultad(level)
-        # Turno de disparo de la máquina
         shoot2player()
-
