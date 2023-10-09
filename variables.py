@@ -2,8 +2,6 @@ import numpy as np
 
 SIZE_TABLERO = (10, 10)
 
-
-
 # Lista de históricos de las coordenadas de los disparos
 player_shots_hist  = []
 machine_shots_hist = []
